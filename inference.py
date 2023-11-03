@@ -9,23 +9,16 @@ from cleanfid import fid as cleanfid
 
 @torch.no_grad()
 def get_fid(gen, dataset_name, dataset_resolution, z_dimension, batch_size, num_gen):
-    ##################################################################
-    # TODO 3.3: Write a function that samples images from the
     # diffusion model given z
-    # Note: The output must be in the range [0, 255]!
-    ##################################################################
-    # print(batch_size)
+    # The output must be in the range [0, 255]!
     z_shape = (batch_size,gen.channels,dataset_resolution,dataset_resolution)
-    # gen_fn = lambda z: torch.clamp((gen.sample_given_z(z,z_shape)),0,255) 
+   
     def get_fn(z):
         images = gen.sample_given_z(z,z_shape)
         gen_image = torch.clamp((images-images.min())/(images.max()-images.min())*255,0,255)
 
         return gen_image
 
-    ##################################################################
-    #                          END OF YOUR CODE                      #
-    ##################################################################
     score = cleanfid.compute_fid(
         gen= get_fn,
         dataset_name=dataset_name,
@@ -85,6 +78,6 @@ if __name__ == "__main__":
             nrow=10,
         )
         if args.compute_fid:
-            # NOTE: This will take a very long time to run even though we are only doing 10K samples.
+            # NOTE: This will take a very long time to run even though 10K samples are used.
             score = get_fid(diffusion, "cifar10", 32, 32*32*3, batch_size=256, num_gen=10_000)
             print("FID: ", score)
