@@ -14,7 +14,7 @@
 ## **Training process equations**
 For training the diffusion model we need to do the *reverse process* where we predict the noise in the image.
 1. The predicted noise from the model is given by
-   $$ \epsilon_t = f(x_t, t)$$
+   $$\epsilon_t = f(x_t, t)$$
 2. From the predicted noise the predicted previous image is given by
    $$\hat{x_0} = \frac{1}{\sqrt{\bar{\alpha_t}}} (x_t - \sqrt{1 - \bar{\alpha_t}} \epsilon_t)$$
    If we keep iterating the above equation we will get the starting image.
