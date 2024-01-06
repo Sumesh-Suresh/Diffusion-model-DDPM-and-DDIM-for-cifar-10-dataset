@@ -30,6 +30,12 @@ NOW FOR EACH TIMESTEP:
    $$x_{t - 1} = \tilde{\mu_t} + \sigma_t z$$
    $$IMG = x_{t - 1}$$
 5. Repeat until $x_0$ and return IMG
+
+
+## Relevant papers:
+[1] Denoising diffusion probabilistic models (Jonathan Ho, et al, 2020): https://arxiv.org/abs/2006.11239
+
+[2] Denoising diffusion implicit models (Jiaming Song et al, 2020): https://arxiv.org/abs/2010.02502
    
    
 
