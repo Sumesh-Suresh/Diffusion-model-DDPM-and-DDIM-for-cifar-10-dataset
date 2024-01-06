@@ -9,4 +9,5 @@
    $$q(x_t | x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}} x_0, (1 - \alpha_t)\mathcal{I})$$
 6. We can find the noisy latents at a timestep $t$ from the original image from the equation:
    $$x_t = \sqrt{\bar{\alpha_t}}x_0 + \sqrt{1 - \bar{\alpha_t}}\epsilon$$
+   where $\epsilon$ is pure noise image sampled from $\mathcal{\mathcal{I}}(0,\mathcal{I})$
 
