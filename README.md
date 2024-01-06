@@ -18,5 +18,5 @@ We can get the denoised image by predicting the noise from the network
    $$ \epsilon_t = f(x_t, t)$$
 2. Previous timestep image is calculated using the noise predicted by network:
    $$\hat{x_0} = \frac{1}{\sqrt{\bar{\alpha_t}}} (x_t - \sqrt{1 - \bar{\alpha_t}} \epsilon_t)$$
-   By repeating this equation we can get the original image $\x_0$. (NOTE: $\hat{x_0} represents the previous timestep image)
+   By repeating this equation we can get the original image $x_0$. (NOTE: $\hat{x_0} represents the previous timestep image)
    
