@@ -1,4 +1,4 @@
-## **Forward process equation:**
+## **Forward process equations:**
 
 1. Diffusion rate $\beta_t \in$ [0,1]
 2. From the diffusion rate find $\alpha_t$ and $\bar{\alpha_t}$
@@ -7,7 +7,16 @@
    $$q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t} x_{t-1}, \beta_t\mathcal{I})$$
 4. After reparameterization we get the equation with respect to $x_0$ instead of $x_{t-1}$
    $$q(x_t | x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}} x_0, (1 - \alpha_t)\mathcal{I})$$
-6. We can find the noisy latents at a timestep $t$ from the original image from the equation:
+5. We can find the noisy latents at a timestep $t$ from the original image from the equation:
    $$x_t = \sqrt{\bar{\alpha_t}}x_0 + \sqrt{1 - \bar{\alpha_t}}\epsilon$$
    where $\epsilon$ is pure noise image sampled from $\mathcal{N}(0,\mathcal{I})$
+
+## **Training process equations**
+For training the diffusion model we need to do the *reverse process* where we predict the noise in the image.
+1. The predicted noise from the model is given by
+   $$ \epsilon_t = f(x_t, t)$$
+2. From the predicted noise the predicted previous image is given by
+   $$\hat{x_0} = \frac{1}{\sqrt{\bar{\alpha_t}}} (x_t - \sqrt{1 - \bar{\alpha_t}} \epsilon_t)$$
+   If we keep iterating the above equation we will get the starting image.
+3.     
 
