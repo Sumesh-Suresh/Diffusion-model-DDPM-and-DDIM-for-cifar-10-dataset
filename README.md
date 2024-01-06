@@ -10,13 +10,13 @@
 5. We can find the noisy latents at a timestep $t$ from the original image from the equation:
    $$x_t = \sqrt{\bar{\alpha_t}}x_0 + \sqrt{1 - \bar{\alpha_t}}\epsilon$$
    where $\epsilon$ is pure noise image sampled from $\mathcal{N}(0,\mathcal{I})$
-
-## **Training process equations**
-For training the diffusion model we need to do the *reverse process* where we predict the noise in the image.
-1. The predicted noise from the model is given by
-   $$\epsilon_t = f(x_t, t)$$
-2. From the predicted noise the predicted previous image is given by
+   
+   
+## **Reverse Process equations**
+We can get the denoised image by predicting the noise from the network
+1. Noise predicted from the network:
+   $$ \epsilon_t = f(x_t, t)$$
+2. Previous timestep image is calculated using the noise predicted by network:
    $$\hat{x_0} = \frac{1}{\sqrt{\bar{\alpha_t}}} (x_t - \sqrt{1 - \bar{\alpha_t}} \epsilon_t)$$
-   If we keep iterating the above equation we will get the starting image.
-3.     
-
+   By repeating this equation we can get the original image $\x_0$. (NOTE: $\hat{x_0} represents the previous timestep image)
+   
