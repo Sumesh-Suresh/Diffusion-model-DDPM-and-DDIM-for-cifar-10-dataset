@@ -27,7 +27,7 @@ NOW FOR EACH TIMESTEP:
    $$\tilde{\mu_t} = \frac{\sqrt{\alpha_t} (1 - \bar{\alpha_{t-1}})}{1 - \bar{\alpha_t}} x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1 - \bar{\alpha_t}} \hat{x_0}$$
    $$\sigma_t^2 = \tilde{\beta_t} = \frac{1 - \bar\alpha_{t - 1}}{1 - \bar\alpha_t} \beta_t$$
 4. update the $IMG$ (with previous image) with the equation:
-   $$x_{t - 1} = \tilde{\mu}_t + \sigma_t z$$
+   $$x_{t - 1} = \tilde{\mu_t} + \sigma_t z$$
    $$IMG = x_{t - 1}$$
 5. REPEAT UNTILL $x_0$ IS FOUND AS $IMG$ AND RETURN  $IMG$
    
